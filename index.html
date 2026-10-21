@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="color-scheme" content="dark">
+<meta name="theme-color" content="#000000">
+<title>School Clock</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<main>
+  <section class="hero" id="hero">
+    <p class="label" id="cLabel">読み込み中…</p>
+    <p class="big mono" id="cTime">--:--.--</p>
+  </section>
+
+  <section class="clocks">
+    <div><span class="cap">学校の時計</span><span class="mono t" id="clk">00:00:00.00</span></div>
+    <div><span class="cap">東京の標準時</span><span class="mono t dim" id="tky">00:00:00.00</span></div>
+  </section>
+
+  <section class="panel">
+    <h2>チャイムのズレ（秒）</h2>
+    <div class="row">
+      <button data-d="-10">−10</button><button data-d="-1">−1</button>
+      <input class="off mono" id="off" type="number" step="1" value="0" aria-label="ズレ（秒）">
+      <button data-d="1">+1</button><button data-d="10">+10</button>
+      <button id="offReset" class="ghost">リセット</button>
+    </div>
+    <p class="note">学校の時計が東京より進んでいれば＋、遅れていれば−。自動で保存されます。</p>
+  </section>
+
+  <section class="panel">
+    <div class="tabs" role="tablist">
+      <button id="tabS" class="on">日課</button><button id="tabO">単発タイマー</button>
+    </div>
+
+    <div id="paneS">
+      <div class="row">
+        <select id="sel" aria-label="日課を選ぶ"></select>
+        <button id="bNew">新規作成</button>
+        <button id="bEdit">編集 / 複製</button>
+        <button id="bDel" class="danger">削除</button>
+      </div>
+      <ul class="list" id="list"></ul>
+
+      <div id="editor" class="hide">
+        <h2>日課の作成・編集</h2>
+        <input type="text" id="eName" placeholder="日課の名前（例：行事日課）">
+        <div id="eRows"></div>
+        <div class="row">
+          <button id="eAdd" class="ghost">＋ 行を追加</button>
+          <button id="eSave" class="pri">保存</button>
+          <button id="eCancel" class="ghost">キャンセル</button>
+        </div>
+      </div>
+    </div>
+
+    <div id="paneO" class="hide">
+      <div class="row">
+        <input type="text" id="oLabel" placeholder="名前（例：テスト終了）">
+        <input type="time" id="oTime" step="1" value="12:00:00">
+        <button id="oGo" class="pri">開始</button>
+      </div>
+      <p class="note">指定した時刻（学校の時計基準）までの残り時間を表示します。</p>
+    </div>
+  </section>
+</main>
+<script src="schedules.js"></script>
+<script src="app.js"></script>
+</body>
+</html>
