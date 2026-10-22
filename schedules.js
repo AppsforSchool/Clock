@@ -14,7 +14,7 @@
  */
 window.PRESET_SCHEDULES = [
   {
-    id: "normal",
+    id: "normal-6",
     name: "通常日課",
     items: [
       { label: "朝の着席",   time: "08:15" },
@@ -30,26 +30,33 @@ window.PRESET_SCHEDULES = [
       { label: "5時間目",    time: "13:30" },
       { label: "6時間目の2分前学習",    time: "14:28" },
       { label: "6時間目",    time: "14:30" },
-      { label: "掃除",    time: "15:30" },
+      { label: "掃除",    time: "15:25" },
+      { label: "帰りの会の2分前着席",    time: "15:43" },
       { label: "帰りの会", time: "15:45" },
       { label: "下校",     time: "16:00" }
     ]
   },
   {
-    id: "short",
+    id: "short-6",
     name: "短縮日課",
     items: [
-      { label: "朝の会",   time: "08:35" },
-      { label: "1限目",    time: "08:50" },
-      { label: "2限目",    time: "09:35" },
-      { label: "3限目",    time: "10:30" },
-      { label: "4限目",    time: "11:15" },
-      { label: "給食",     time: "12:00" },
-      { label: "昼休み",   time: "12:40" },
-      { label: "掃除",     time: "13:00" },
-      { label: "5限目",    time: "13:20" },
-      { label: "帰りの会", time: "14:05" },
-      { label: "下校",     time: "14:20" }
+      { label: "朝の着席",   time: "08:15" },
+      { label: "1時間目の2分前学習",    time: "08:38" },
+      { label: "1時間目",    time: "08:40" },
+      { label: "2時間目の2分前学習",    time: "09:33" },
+      { label: "2時間目",    time: "09:35" },
+      { label: "3時間目の2分前学習",    time: "10:28" },
+      { label: "3時間目",    time: "10:30" },
+      { label: "4時間目の2分前学習",    time: "11:23" },
+      { label: "4時間目",    time: "11:25" },
+      { label: "5時間目の2分前学習",    time: "13:08" },
+      { label: "5時間目",    time: "13:10" },
+      { label: "6時間目の2分前学習",    time: "14:03" },
+      { label: "6時間目",    time: "14:05" },
+      { label: "掃除",    time: "14:55" },
+      { label: "帰りの会の2分前着席",    time: "15:13" },
+      { label: "帰りの会", time: "15:15" },
+      { label: "下校",     time: "15:30" }
     ]
   }
 ];
