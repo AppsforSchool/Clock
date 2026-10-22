@@ -93,7 +93,6 @@ document.addEventListener('fullscreenchange', syncFs);
 document.addEventListener('keydown', e => { if (e.key === 'Escape' && hero.classList.contains('fs')) toggleFs(); });
 
 /* メインループ */
-let prevKey = null, prevCtx = null, flashUntil = 0;
 function tick() {
   const real = Date.now();
   const tokyo = (real + 9 * 3600000) % DAY;
@@ -110,13 +109,8 @@ function tick() {
   else if (S.once.ms > now) { label = S.once.label + 'まであと'; rem = S.once.ms - now; key = S.once.ms; }
   else label = S.once.label + 'の時刻です';
 
-  const c = S.mode + ':' + (S.mode === 's' ? S.sel : (S.once && S.once.ms));
-  if (c === prevCtx && prevKey !== null && key !== prevKey) flashUntil = performance.now() + 3000;
-  prevCtx = c; prevKey = key;
-
   $('cLabel').textContent = label;
   $('cTime').textContent = rem === null ? '--:--.--' : remFmt(rem);
-  $('hero').classList.toggle('flash', performance.now() < flashUntil);
   requestAnimationFrame(tick);
 }
 

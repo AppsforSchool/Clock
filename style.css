@@ -18,14 +18,13 @@ main{max-width:720px;margin:0 auto;padding:20px 16px 48px}
 .hero:fullscreen,.hero.fs{background:#000;display:flex;flex-direction:column;justify-content:center;align-items:center;padding:0}
 .hero.fs{position:fixed;inset:0;z-index:100;border-radius:0}
 .hero:fullscreen .label,.hero.fs .label{font-size:clamp(24px,5vw,56px)}
-.hero:fullscreen .big,.hero.fs .big{font-size:min(19vw,40vh);margin-top:12px}
+.hero:fullscreen .big,.hero.fs .big{font-size:min(19vw,36vh);margin-top:12px}
+.hero:fullscreen .clocks,.hero.fs .clocks{margin-top:5vh;gap:clamp(24px,8vw,120px)}
+.hero:fullscreen .clocks .t,.hero.fs .clocks .t{font-size:clamp(24px,6vw,64px)}
+.hero:fullscreen .clocks .cap,.hero.fs .clocks .cap{font-size:clamp(12px,1.6vw,20px)}
 .hero:fullscreen .fsbtn,.hero.fs .fsbtn{top:calc(16px + env(safe-area-inset-top,0px));right:16px}
-.hero.flash{background:var(--fg);color:#000;animation:blink .5s infinite alternate}
-.hero.flash .label,.hero.flash .fsbtn{color:#000}
-.hero.flash:fullscreen,.hero.flash.fs{background:var(--fg)}
-@keyframes blink{to{opacity:.6}}
 
-.clocks{display:flex;justify-content:center;gap:clamp(20px,8vw,64px);flex-wrap:wrap;margin:8px 0 24px;text-align:center}
+.clocks{display:flex;justify-content:center;gap:clamp(20px,8vw,64px);flex-wrap:wrap;margin:28px 0 0;text-align:center}
 .clocks .cap{display:block;font-size:12px;letter-spacing:.08em;color:var(--sub)}
 .clocks .t{font-size:clamp(22px,6vw,32px);font-weight:500}
 .dim{color:var(--sub)}
