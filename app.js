@@ -75,6 +75,23 @@ function setMode(m) {
 $('tabS').onclick = () => setMode('s'); $('tabO').onclick = () => setMode('o');
 $('oGo').onclick = () => { S.once = { label: $('oLabel').value.trim() || '指定時刻', ms: toMs($('oTime').value || '00:00:00') }; };
 
+/* 残り時間の全画面表示（非対応の端末は画面いっぱいの表示に切り替え） */
+const hero = $('hero'), fsBtn = $('fsBtn');
+const isFs = () => document.fullscreenElement === hero || hero.classList.contains('fs');
+const syncFs = () => { fsBtn.textContent = isFs() ? '閉じる' : '全画面'; };
+async function toggleFs() {
+  if (isFs()) {
+    hero.classList.remove('fs');
+    if (document.fullscreenElement) { try { await document.exitFullscreen(); } catch (e) {} }
+  } else if (hero.requestFullscreen) {
+    try { await hero.requestFullscreen(); } catch (e) { hero.classList.add('fs'); }
+  } else hero.classList.add('fs');
+  syncFs();
+}
+fsBtn.onclick = toggleFs;
+document.addEventListener('fullscreenchange', syncFs);
+document.addEventListener('keydown', e => { if (e.key === 'Escape' && hero.classList.contains('fs')) toggleFs(); });
+
 /* メインループ */
 let prevKey = null, prevCtx = null, flashUntil = 0;
 function tick() {
